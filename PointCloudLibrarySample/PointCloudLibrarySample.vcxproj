@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KinectControl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="KinectControl.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{63ACA6D6-35AA-44B9-B7D9-02A9E4BA0089}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>PointCloudLibrarySample</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\PCL 1.7.2\3rdParty\Eigen\eigen3;C:\OpenCV2.4.7\build\include;C:\Program Files\Microsoft SDKs\Kinect\v1.8\inc;C:\Program Files (x86)\PCL 1.7.2\3rdParty\VTK\include\vtk-6.2;C:\Program Files (x86)\PCL 1.7.2\3rdParty\Boost\include\boost-1_57;C:\Program Files (x86)\PCL 1.7.2\include\pcl-1.7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Kinect\v1.8\lib\x86;C:\OpenCV2.4.7\build\x86\vc11\lib;C:\Program Files (x86)\PCL 1.7.2\lib;C:\Program Files %28x86%29\PCL 1.7.2\3rdParty\VTK\lib;C:\Program Files %28x86%29\PCL 1.7.2\3rdParty\Boost\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_video247d.lib;opencv_core247d.lib;opencv_imgproc247d.lib;opencv_highgui247d.lib;Kinect10.lib;pcl_common_debug.lib;pcl_people_release.lib;pcl_common_release.lib;pcl_recognition_debug.lib;pcl_features_debug.lib;pcl_recognition_release.lib;pcl_features_release.lib;pcl_registration_debug.lib;pcl_filters_debug.lib;pcl_registration_release.lib;pcl_filters_release.lib;pcl_sample_consensus_debug.lib;pcl_io_debug.lib;pcl_sample_consensus_release.lib;pcl_io_ply_debug.lib;pcl_search_debug.lib;pcl_io_ply_release.lib;pcl_search_release.lib;pcl_io_release.lib;pcl_segmentation_debug.lib;pcl_kdtree_debug.lib;pcl_segmentation_release.lib;pcl_kdtree_release.lib;pcl_surface_debug.lib;pcl_keypoints_debug.lib;pcl_surface_release.lib;pcl_keypoints_release.lib;pcl_tracking_debug.lib;pcl_octree_debug.lib;pcl_tracking_release.lib;pcl_octree_release.lib;pcl_visualization_debug.lib;pcl_outofcore_debug.lib;pcl_visualization_release.lib;pcl_outofcore_release.lib;pcl_people_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\PCL 1.7.2\3rdParty\Eigen\eigen3;C:\OpenCV2.4.7\build\include;C:\Program Files\Microsoft SDKs\Kinect\v1.8\inc;C:\Program Files (x86)\PCL 1.7.2\3rdParty\VTK\include\vtk-6.2;C:\Program Files (x86)\PCL 1.7.2\3rdParty\Boost\include\boost-1_57;C:\Program Files (x86)\PCL 1.7.2\include\pcl-1.7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft SDKs\Kinect\v1.8\lib\x86;C:\OpenCV2.4.7\build\x86\vc11\lib;C:\Program Files (x86)\PCL 1.7.2\lib;C:\Program Files %28x86%29\PCL 1.7.2\3rdParty\VTK\lib;C:\Program Files %28x86%29\PCL 1.7.2\3rdParty\Boost\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_video247.lib;opencv_core247.lib;opencv_imgproc247.lib;opencv_highgui247.lib;Kinect10.lib;pcl_common_debug.lib;pcl_people_release.lib;pcl_common_release.lib;pcl_recognition_debug.lib;pcl_features_debug.lib;pcl_recognition_release.lib;pcl_features_release.lib;pcl_registration_debug.lib;pcl_filters_debug.lib;pcl_registration_release.lib;pcl_filters_release.lib;pcl_sample_consensus_debug.lib;pcl_io_debug.lib;pcl_sample_consensus_release.lib;pcl_io_ply_debug.lib;pcl_search_debug.lib;pcl_io_ply_release.lib;pcl_search_release.lib;pcl_io_release.lib;pcl_segmentation_debug.lib;pcl_kdtree_debug.lib;pcl_segmentation_release.lib;pcl_kdtree_release.lib;pcl_surface_debug.lib;pcl_keypoints_debug.lib;pcl_surface_release.lib;pcl_keypoints_release.lib;pcl_tracking_debug.lib;pcl_octree_debug.lib;pcl_tracking_release.lib;pcl_octree_release.lib;pcl_visualization_debug.lib;pcl_outofcore_debug.lib;pcl_visualization_release.lib;pcl_outofcore_release.lib;pcl_people_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
