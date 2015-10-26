@@ -11,6 +11,8 @@
 #include <pcl\point_types.h>
 #include <pcl\visualization\cloud_viewer.h>
 
+//#include <pcl\filters\statistical_outlier_removal.h>  //フィルター用追加分
+
 #define ERROR_CHECK(ret)                                            \
   if(ret != S_OK) {                                               \
   std::stringstream ss;                                           \
@@ -44,6 +46,7 @@ private:
 
 	cv::Mat rgbImage;
 	cv::Mat depthImage;
-	pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud;
+	//pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud;
+	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
 	pcl::visualization::CloudViewer *viewer;
 };

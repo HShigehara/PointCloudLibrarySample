@@ -67,8 +67,8 @@ void KinectControl::run()
 		setDepthImage(depthImage);
 
 		// 画像を表示する
-		cv::imshow("RGBCamera", rgbImage);
-		cv::imshow("DepthCamera", depthImage);
+		//cv::imshow("RGBCamera", rgbImage);
+		//cv::imshow("DepthCamera", depthImage);
 
 		// ポイントクラウドを表示する
 		viewer->showCloud(cloud);
@@ -107,9 +107,15 @@ void KinectControl::setDepthImage(cv::Mat& image)
 {
 	try {
 		// ポイントクラウド準備
-		pcl::PointCloud<pcl::PointXYZRGBA>::Ptr points(new pcl::PointCloud<pcl::PointXYZRGBA>);
+		//pcl::PointCloud<pcl::PointXYZRGBA>::Ptr points(new pcl::PointCloud<pcl::PointXYZRGBA>);
+		pcl::PointCloud<pcl::PointXYZ>::Ptr points(new pcl::PointCloud<pcl::PointXYZ>);
 		points->width = width;
 		points->height = height;
+
+
+		//pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZRGBA>); //フィルター用追加分
+
+
 
 		// 距離画像準備
 		image = cv::Mat(height, width, CV_8UC1, cv::Scalar(0));
@@ -139,16 +145,17 @@ void KinectControl::setDepthImage(cv::Mat& image)
 
 			// ポイントクラウド
 			Vector4 real = NuiTransformDepthImageToSkeleton(depthX, depthY, distance, CAMERA_RESOLUTION);
-			pcl::PointXYZRGBA point;
+			//pcl::PointXYZRGBA point;
+			pcl::PointXYZ point;
 			point.x = real.x;
 			point.y = -real.y;
 			point.z = real.z;
 
 			// テクスチャ
-			cv::Vec4b color = rgbImage.at<cv::Vec4b>(colorY, colorX);
-			point.r = color[2];
-			point.g = color[1];
-			point.b = color[0];
+			//cv::Vec4b color = rgbImage.at<cv::Vec4b>(colorY, colorX);
+			//point.r = color[2];
+			//point.g = color[1];
+			//point.b = color[0];
 			points->push_back(point);
 		}
 
