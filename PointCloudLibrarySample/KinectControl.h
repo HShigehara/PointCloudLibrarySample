@@ -7,11 +7,13 @@
 #include <NuiApi.h>
 
 #include <opencv2/opencv.hpp>
+//#include <flann/flann.hpp>
+#include <opencv2/flann/flann.hpp>
 
 #include <pcl\point_types.h>
 #include <pcl\visualization\cloud_viewer.h>
 
-//#include <pcl\filters\statistical_outlier_removal.h>  //フィルター用追加分
+#include <pcl\filters\statistical_outlier_removal.h>  //フィルター用追加分
 
 #define ERROR_CHECK(ret)                                            \
   if(ret != S_OK) {                                               \
@@ -49,4 +51,8 @@ private:
 	//pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud;
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
 	pcl::visualization::CloudViewer *viewer;
+
+
+	//pcl::PointCloud<pcl::PointXYZ>::Ptr cf;
+	//pcl::visualization::CloudViewer *viewer_filtered;
 };

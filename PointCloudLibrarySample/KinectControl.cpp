@@ -34,6 +34,7 @@ void KinectControl::initialize()
 
 	// PointCloudビューワを初期化
 	viewer = new pcl::visualization::CloudViewer("Kinect Point Cloud");
+	//viewer_filtered = new pcl::visualization::CloudViewer("Kinect Point Cloud(filtered)");
 }
 
 void KinectControl::createInstance()
@@ -72,6 +73,7 @@ void KinectControl::run()
 
 		// ポイントクラウドを表示する
 		viewer->showCloud(cloud);
+		//viewer_filtered->showCloud(cf);
 
 		// 終了のためのキー入力チェック兼、表示のためのウェイト
 		int key = cv::waitKey(10);
@@ -107,14 +109,15 @@ void KinectControl::setDepthImage(cv::Mat& image)
 {
 	try {
 		// ポイントクラウド準備
-		//pcl::PointCloud<pcl::PointXYZRGBA>::Ptr points(new pcl::PointCloud<pcl::PointXYZRGBA>);
-		pcl::PointCloud<pcl::PointXYZ>::Ptr points(new pcl::PointCloud<pcl::PointXYZ>);
+		//pcl::PointCloud<pcl::PointXYZRGBA>::Ptr points(new pcl::PointCloud<pcl::PointXYZRGBA>); //カラーまで利用したければこちらを使う
+		pcl::PointCloud<pcl::PointXYZ>::Ptr points(new pcl::PointCloud<pcl::PointXYZ>); //白黒の点群を扱う場合はこちら
 		points->width = width;
 		points->height = height;
 
 
-		//pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZRGBA>); //フィルター用追加分
-
+		//pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZ>); //フィルター用追加分
+		//cloud_filtered->width = width;
+		//cloud_filtered->height = height;
 
 
 		// 距離画像準備
@@ -158,9 +161,18 @@ void KinectControl::setDepthImage(cv::Mat& image)
 			//point.b = color[0];
 			points->push_back(point);
 		}
-
 		// ポイントクラウドをコピー
 		cloud = points;
+
+
+		//フィルタリングオブジェクトの生成
+		//pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor; //インスタンスの生成
+		//sor.setInputCloud(cloud); //フィルタリング対象の点群を入力
+		//sor.setMeanK(50); //フィルタリングの程度(?)
+		//sor.setStddevMulThresh(1.0);
+		//sor.filter(*cloud_filtered);
+		
+
 
 		// フレームデータを解放する
 		ERROR_CHECK(kinect->NuiImageStreamReleaseFrame(depthStreamHandle, &depthFrame));

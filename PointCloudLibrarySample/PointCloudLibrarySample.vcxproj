@@ -59,7 +59,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\PCL 1.7.2\3rdParty\Eigen\eigen3;C:\OpenCV2.4.7\build\include;C:\Program Files\Microsoft SDKs\Kinect\v1.8\inc;C:\Program Files (x86)\PCL 1.7.2\3rdParty\VTK\include\vtk-6.2;C:\Program Files (x86)\PCL 1.7.2\3rdParty\Boost\include\boost-1_57;C:\Program Files (x86)\PCL 1.7.2\include\pcl-1.7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenCV2.4.7\build\include\opencv2;C:\Program Files (x86)\PCL 1.7.2\3rdParty\Eigen\eigen3;C:\OpenCV2.4.7\build\include;C:\Program Files\Microsoft SDKs\Kinect\v1.8\inc;C:\Program Files (x86)\PCL 1.7.2\3rdParty\VTK\include\vtk-6.2;C:\Program Files (x86)\PCL 1.7.2\3rdParty\Boost\include\boost-1_57;C:\Program Files (x86)\PCL 1.7.2\include\pcl-1.7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
